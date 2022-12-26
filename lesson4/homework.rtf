@@ -1,0 +1,225 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20300\viewh14560\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 1. \uc0\u1052 \u1086 \u1081  \u1089 \u1077 \u1088 \u1074 \u1077 \u1088  \u1085 \u1072  https://www.hetzner.com/ \u1085 \u1072  \u1087 \u1086 \u1076 \u1076 \u1077 \u1088 \u1078 \u1080 \u1074 \u1072 \u1077 \u1090  \u1089 \u1080 \u1089 \u1090 \u1077 \u1084 \u1091  \u1074 \u1080 \u1088 \u1090 \u1091 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1080  \
+adereh@ubuntu:~$ sudo kvm-ok\
+INFO: Your CPU does not support KVM extensions\
+KVM acceleration can NOT be used\
+\
+2.\
+[root@centos7 ssh]# cat sshd_config | grep Password\
+PasswordAuthentication yes\
+[root@centos7 ssh]# cat sshd_config | grep Pubkey\
+PubkeyAuthentication yes\
+[root@centos7 ssh]#\
+\
+adereh@ubuntu:/etc/ssh$ cat sshd_config | grep Pubke\
+PubkeyAuthentication yes\
+adereh@ubuntu:/etc/ssh$ cat sshd_config | grep Passw\
+PasswordAuthentication yes\
+\
+3.\
+adereh@ubuntu:/etc/ssh$ git --version\
+git version 2.34.1\
+\
+[root@centos7 ssh]# sudo yum install git\
+[root@centos7 ssh]# git --version\
+git version 1.8.3.1\
+\
+4.\
+root@centos7 ssh]# ssh-keygen\
+Generating public/private rsa key pair.\
+Enter file in which to save the key (/root/.ssh/id_rsa):\
+/root/.ssh/id_rsa already exists.\
+Overwrite (y/n)? y\
+Enter passphrase (empty for no passphrase):\
+Enter same passphrase again:\
+Your identification has been saved in /root/.ssh/id_rsa.\
+Your public key has been saved in /root/.ssh/id_rsa.pub.\
+The key fingerprint is:\
+SHA256:T3MpmsqvRzgOgGOkluW2eNPY1EVS3n32lHG5Iw93dls root@centos7\
+The key's randomart image is:\
++---[RSA 2048]----+\
+|       .oo     .o|\
+| . .    o.. .  .+|\
+|o.+   . .. . . +o|\
+|++.o . .     +o=E|\
+|o.o.*  .S + o =.B|\
+| . =.oo .= +   o |\
+|  . .o oo .      |\
+|     ....        |\
+|      ++.        |\
++----[SHA256]-----+\
+[root@centos7 ssh]#\
+\
+5.\
+\
+[root@centos7 ssh]#  ssh-copy-id -i ~/.ssh/id_rsa.pub adereh@49.12.96.38\
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"\
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed\
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys\
+adereh@49.12.96.38's password:\
+Number of key(s) added: 1\
+Now try logging into the machine, with:   "ssh 'adereh@49.12.96.38'"\
+and check to make sure that only the key(s) you wanted were added.\
+[root@centos7 ssh]#\
+\
+\
+6.\
+[adereh@centos7 ~]$ cat mycript.sh\
+#!/bin/bash\
+echo '\uc0\u1057 \u1074 \u1086 \u1073 \u1086 \u1076 \u1085 \u1072 \u1103  \u1087 \u1072 \u1084 \u1103 \u1090 \u1100 '\
+free -h | egrep 'Mem'| sed 's/G/\uc0\u1043 \u1073 /g' | awk '\{print $4\}'\
+echo '\uc0\u1047 \u1072 \u1075 \u1088 \u1091 \u1079 \u1082 \u1072  \u1087 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088 \u1072 '\
+cat /proc/loadavg\
+echo 'IP-\uc0\u1072 \u1076 \u1088 \u1077 \u1089 \u1089 '\
+hostname -I | awk '\{print $1\}'\
+[adereh@centos7 ~]$\
+[adereh@centos7 ~]$ sh mycript.sh\
+\uc0\u1057 \u1074 \u1086 \u1073 \u1086 \u1076 \u1085 \u1072 \u1103  \u1087 \u1072 \u1084 \u1103 \u1090 \u1100 \
+1.2\uc0\u1043 \u1073 \
+\uc0\u1047 \u1072 \u1075 \u1088 \u1091 \u1079 \u1082 \u1072  \u1087 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088 \u1072 \
+0.00 0.01 0.05 2/88 13148\
+IP-\uc0\u1072 \u1076 \u1088 \u1077 \u1089 \u1089 \
+167.235.241.82\
+[adereh@centos7 ~]$\
+\
+7.\
+[root@centos7 adereh]# vi .bashrc\
+\uc0\u1042 \u1089 \u1090 \u1072 \u1074 \u1080 \u1083  sh /home/adereh/myscript.sh \u1074  \u1092 \u1072 \u1081 \u1083 \
+artemderekh@artemderekh ~ % ssh adereh@167.235.241.82\
+adereh@167.235.241.82's password:\
+Last login: Sat Dec 24 20:43:12 2022\
+-bash: warning: setlocale: LC_CTYPE: cannot change locale (UTF-8): No such file or directory\
+\uc0\u1057 \u1074 \u1086 \u1073 \u1086 \u1076 \u1085 \u1072 \u1103  \u1087 \u1072 \u1084 \u1103 \u1090 \u1100 \
+1.5\uc0\u1043 \u1073 \
+\uc0\u1047 \u1072 \u1075 \u1088 \u1091 \u1079 \u1082 \u1072  \u1087 \u1088 \u1086 \u1094 \u1077 \u1089 \u1089 \u1086 \u1088 \u1072 \
+0.07 0.10 0.05 2/91 1556\
+IP-\uc0\u1072 \u1076 \u1088 \u1077 \u1089 \u1089 \
+167.235.241.82\
+[adereh@centos7 ~]$\
+\
+8.\
+adereh@ubuntu:~$ scp adereh@167.235.241.82:/home/adereh/myscript.sh /home/adereh\
+The authenticity of host '167.235.241.82 (167.235.241.82)' can't be established.\
+ED25519 key fingerprint is SHA256:Fl5lu3pSe31QX2YPw4e0uRgQx228nOZ6R/r5+OpUsqc.\
+This key is not known by any other names\
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y\
+Please type 'yes', 'no' or the fingerprint: yes\
+Warning: Permanently added '167.235.241.82' (ED25519) to the list of known hosts.\
+adereh@167.235.241.82's password:\
+\uc0\u1057 \u1074 \u1086 \u1073 \u1086 \u1076 \u1085 \u1072 \u1103  \u1087 \u1072 \u1084 \u1103 \u1090 \u1100 \
+adereh@ubuntu:~$ ll\
+\
+\uc0\u1058 \u1086 \u1095 \u1085 \u1086  \u1090 \u1072 \u1082  \u1078 \u1077  \u1076 \u1086 \u1073 \u1072 \u1074 \u1080 \u1083  sh /home/adereh/myscript.sh \u1074  \u1092 \u1072 \u1081 \u1083 \u1077  .bashrc\
+\
+9.\
+adereh@ubuntu:~$ sudo adduser user1\
+\uc0\u1044 \u1086 \u1073 \u1072 \u1074 \u1083 \u1103 \u1077 \u1084  user1  \u1074  \u1075 \u1088 \u1091 \u1087 \u1087 \u1091  adereh\
+adereh@ubuntu:~$ sudo usermod -a -G adereh user1\
+\uc0\u1055 \u1088 \u1077 \u1076 \u1086 \u1089 \u1090 \u1072 \u1074 \u1083 \u1103 \u1077 \u1084  \u1075 \u1088 \u1091 \u1087 \u1087 \u1077  \u1076 \u1086 \u1089 \u1090 \u1091 \u1087  \u1085 \u1072  \u1095 \u1090 \u1077 \u1085 \u1080 \u1077  \u1080  \u1074 \u1099 \u1087 \u1086 \u1083 \u1085 \u1077 \u1085 \u1080 \u1077 \
+adereh@ubuntu:~$ sudo chmod g+rx  myscript.sh\
+\
+10.\
+[adereh@centos7 ~]$ wget https://github.com/dalance/procs/releases/download/v0.13.3/procs-0.13.3-1.x86_64.rpm\
+\uc0\u1044 \u1077 \u1083 \u1072 \u1077 \u1084  \u1088 \u1077 \u1087 \u1086 \u1079 \u1080 \u1090 \u1086 \u1088 \u1080 \u1103 \
+[adereh@centos7 myrepo]$ createrepo /home/adereh/myrepo/\
+Spawning worker 0 with 1 pkgs\
+Workers Finished\
+Saving Primary metadata\
+Saving file lists metadata\
+Saving other metadata\
+Generating sqlite DBs\
+Sqlite DBs complete\
+[adereh@centos7 myrepo]$\
+\
+[adereh@centos7 repodata]$ cat /etc/yum.repos.d/local.repo\
+[localrepo]\
+name=localRepo\
+baseurl=file:///home/adereh/myrepo\
+gpgcheck=0\
+enabled=1\
+[adereh@centos7 repodata]$\
+\uc0\u1059 \u1089 \u1090 \u1072 \u1085 \u1086 \u1074 \u1082 \u1072  \u1089  \u1083 \u1086 \u1082 \u1072 \u1083 \u1100 \u1085 \u1086 \u1075 \u1086  \u1088 \u1077 \u1087 \u1086 \u1079 \u1080 \u1090 \u1086 \u1088 \u1080 \u1103 \
+[adereh@centos7 repodata]$ sudo yum localinstall /home/adereh/myrepo/procs-0.13.3-1.x86_64.rpm\
+Failed to set locale, defaulting to C\
+Loaded plugins: fastestmirror\
+Examining /home/adereh/myrepo/procs-0.13.3-1.x86_64.rpm: procs-0.13.3-1.x86_64\
+Marking /home/adereh/myrepo/procs-0.13.3-1.x86_64.rpm to be installed\
+Resolving Dependencies\
+--> Running transaction check\
+---> Package procs.x86_64 0:0.13.3-1 will be installed\
+--> Finished Dependency Resolution\
+\
+Dependencies Resolved\
+\
+==============================================================================================================\
+ Package             Arch                 Version                  Repository                            Size\
+==============================================================================================================\
+Installing:\
+ procs               x86_64               0.13.3-1                 /procs-0.13.3-1.x86_64               5.7 M\
+\
+Transaction Summary\
+==============================================================================================================\
+Install  1 Package\
+\
+Total size: 5.7 M\
+Installed size: 5.7 M\
+Is this ok [y/d/N]: y\
+Downloading packages:\
+Running transaction check\
+Running transaction test\
+Transaction test succeeded\
+Running transaction\
+  Installing : procs-0.13.3-1.x86_64                                                                      1/1\
+  Verifying  : procs-0.13.3-1.x86_64                                                                      1/1\
+\
+Installed:\
+  procs.x86_64 0:0.13.3-1\
+\
+Complete!\
+[adereh@centos7 repodata]$\
+\
+11.\
+\uc0\u1053 \u1077  \u1089 \u1076 \u1077 \u1083 \u1072 \u1083 \
+\
+12.\
+\
+sudo yum install bash-completion bash-completion-extras\
+[adereh@centos7 ~]$ timedatectl\
+list-timezones  set-ntp         set-timezone\
+set-local-rtc   set-time        status\
+[adereh@centos7 ~]$ timedatectl\
+\
+13.\
+\
+\uc0\u1044 \u1086 \u1073 \u1072 \u1074 \u1080 \u1083  \u1074  /etc/ntp.conf\
+pool  0.ru.pool.ntp.org iburst\
+pool  1.ru.pool.ntp.org iburst\
+pool  2.ru.pool.ntp.org iburst\
+pool  3.ru.pool.ntp.org iburst\
+# Use Ubuntu's ntp server as a fallback.\
+pool ru.ntp.ubuntu.com\
+\
+\uc0\u1055 \u1086 \u1090 \u1086 \u1084  \u1088 \u1077 \u1089 \u1090 \u1072 \u1088 \u1090 \u1072 \u1085 \u1091 \u1083  nap\
+\
+adereh@ubuntu:~$sudo systemctl restart ntp\
+adereh@ubuntu:~$ ntpq -p\
+     remote           refid      st t when poll reach   delay   offset  jitter\
+==============================================================================\
+ 0.ru.pool.ntp.o .POOL.          16 p    -   64    0    0.000   +0.000   0.000\
+ 1.ru.pool.ntp.o .POOL.          16 p    -   64    0    0.000   +0.000   0.000\
+ 2.ru.pool.ntp.o .POOL.          16 p    -   64    0    0.000   +0.000   0.000\
+ 3.ru.pool.ntp.o .POOL.          16 p    -   64    0    0.000   +0.000   0.000\
+ ru.ntp.ubuntu.c .POOL.          16 p    -   64    0    0.000   +0.000   0.000\
+\
+\uc0\u1042  \u1092 \u1072 \u1081 \u1083  /etc/systemd/timesyncd.conf\
+\uc0\u1044 \u1086 \u1073 \u1072 \u1074 \u1080 \u1083  NTP=ru.pool.NTP.org\
+\
+\
+\
+}
